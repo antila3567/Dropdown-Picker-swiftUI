@@ -8,14 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection: String?
+    @State private var selection1: String?
+    @State private var selection2: String?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack(spacing: 15) {
+                Button("Inteact with it") {
+                    
+                }
+                DropdownView(
+                    hint: "Select",
+                    options: [
+                    "Youtube",
+                    "Instagram",
+                    "Twitter",
+                    "Snapchat",
+                    ],
+                    anchor: .top,
+                    selection: $selection
+                )
+                DropdownView(
+                    hint: "Select",
+                    options: [
+                    "Youtube",
+                    "Instagram",
+                    "Twitter",
+                    "Snapchat",
+                    ],
+                    anchor: .bottom,
+                    selection: $selection1
+                )
+                DropdownView(
+                    hint: "Select",
+                    options: [
+                    "Youtube",
+                    "Instagram",
+                    "Twitter",
+                    "Snapchat",
+                    ],
+                    anchor: .top,
+                    selection: $selection2
+                )
+            }
+            .navigationTitle("Dropdown Picker")
         }
-        .padding()
     }
 }
 
